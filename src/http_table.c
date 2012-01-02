@@ -39,7 +39,7 @@ int http_table_write_update(http_table_t* const http_table, gzFile handle) {
   int idx;
   for (idx = 0; idx < http_table->length; ++idx) {
       if (!gzprintf(handle,
-                    "%" PRIu16 " 0 %s \n",
+                    "%" PRIu16 " -1 %s \n",
                     http_table->entries[idx].flow_id,
                     buffer_to_hex(http_table->entries[idx].url,ANONYMIZATION_DIGEST_LENGTH))) {
         perror("Error writing update");
